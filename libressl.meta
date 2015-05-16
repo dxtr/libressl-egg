@@ -1,0 +1,9 @@
+;;; libressl.meta -*- Hen -*-
+
+((egg "libressl.egg")
+ (synopsis "Bindings to the LibreSSL SSL/TLS library")
+ (author "Thomas Chust")
+ (license "BSD")
+ (category net)
+ (doc-from-wiki)
+ (files "libressl.scm" "libressl.release-info" "libressl.meta" "libressl.setup"))

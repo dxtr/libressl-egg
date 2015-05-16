@@ -1,0 +1,7 @@
+;LDFLAGS:  -L/usr/local/opt/libressl/lib
+;CPPFLAGS: -I/usr/local/opt/libressl/include
+
+(compile -I/usr/local/opt/libressl/include -L/usr/local/opt/libressl/lib -O2 -d0 -s -j libressl "libressl.scm" -lssl -lcrypto)
+(compile -I/usr/local/opt/libressl/include -L/usr/local/opt/libressl/lib -O2 -d0 -s libressl.import.scm)
+(compile -I/usr/local/opt/libressl/include -L/usr/local/opt/libressl/lib -O2 -d0 -c "libressl.scm" -lssl -lcrypto -o libressl-static.o -unit libressl -D static)
+(install-extension 'libressl '("libressl.scm" "libressl.so" "libressl.import.so" "libressl-static.o") '((version "1.0.0")  (static "libressl-static.o") (static-options "-lssl -lcrypto")))
